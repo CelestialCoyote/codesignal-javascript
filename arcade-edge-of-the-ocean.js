@@ -13,5 +13,24 @@ function largestProduct(inputArray) {
 	return (largestProduct);
 };
 
-console.log(largestProduct([3, 6, -2, -5, 7, 3]));
+//console.log(largestProduct([3, 6, -2, -5, 7, 3]));
 //console.log(largestProduct([-23, 4, -3, 8, -12]));
+
+
+// Below we will define an n-interesting polygon. Your task is to find the
+// area of a polygon for a given n.
+// A 1-interesting polygon is just a square with a side of length 1.
+// An n-interesting polygon is obtained by taking the n - 1-interesting
+// polygon and appending 1-interesting polygons to its rim, side by side.
+function shapeArea(n) {
+	if (n < 0) {
+		return false
+	};
+	
+	return (n * n) + ((n - 1) * (n - 1));
+};
+
+//console.log(shapeArea(1));
+//console.log(shapeArea(2));
+//console.log(shapeArea(3));
+//console.log(shapeArea(4));
