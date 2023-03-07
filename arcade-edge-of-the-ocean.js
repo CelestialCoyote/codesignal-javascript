@@ -55,5 +55,40 @@ function makeArrayConsecutive(statues) {
 	return missing;
 };
 
-console.log(makeArrayConsecutive([6, 2, 3, 8]));
-console.log(makeArrayConsecutive([6, 2, 3, 10]));
+//console.log(makeArrayConsecutive([6, 2, 3, 8]));
+//console.log(makeArrayConsecutive([6, 2, 3, 10]));
+
+
+// Given a sequence of integers as an array, determine whether it is possible
+// to obtain a strictly increasing sequence by removing no more than one element
+// from the array.
+
+// Note: sequence a0, a1, ..., an is considered to be a strictly increasing if
+// a0 < a1 < ... < an. Sequence containing only one element is also considered to
+// be strictly increasing.
+function almostIncreasingSequence(sequence) {
+	let dropCount = 0;
+
+	for (let i = 0; i < sequence.length; i++) {
+		// Check if current element is equal or greater than next element.
+		if (sequence[i] >= sequence[i + 1]) {
+			dropCount++;
+		};
+
+		if (dropCount > 1)
+			return false;
+		
+		// Check if second previous element is greater than or equal to current element
+		// and if previous element is greater than or equal to next element.
+		if (sequence[i - 2] >= sequence[i] && sequence[i - 1] >= sequence[i + 1]) {
+			return false;
+		};
+	};
+
+	return true;
+};
+
+//console.log(almostIncreasingSequence([1, 3, 2, 1]));
+//console.log(almostIncreasingSequence([1, 3, 2]));
+//console.log(almostIncreasingSequence([1, 1, 2, 3, 4, 4]));
+//console.log(almostIncreasingSequence([10, 1, 2, 3, 4, 5]));
