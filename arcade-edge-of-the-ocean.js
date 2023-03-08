@@ -77,7 +77,7 @@ function almostIncreasingSequence(sequence) {
 
 		if (dropCount > 1)
 			return false;
-		
+
 		// Check if second previous element is greater than or equal to current element
 		// and if previous element is greater than or equal to next element.
 		if (sequence[i - 2] >= sequence[i] && sequence[i - 1] >= sequence[i + 1]) {
@@ -92,3 +92,47 @@ function almostIncreasingSequence(sequence) {
 //console.log(almostIncreasingSequence([1, 3, 2]));
 //console.log(almostIncreasingSequence([1, 1, 2, 3, 4, 4]));
 //console.log(almostIncreasingSequence([10, 1, 2, 3, 4, 5]));
+
+
+// Given matrix, a rectangular matrix of integers, where each value represents the
+// cost of the room, your task is to return the total sum of all rooms that are
+// suitable for the CodeBots (ie: add up all the values that don't appear below a 0).
+function matrixElementsSum(matrix) {
+	let total = 0;
+
+	for (let i = 0; i < matrix.length; i++) {
+		for (let j = 0; j < matrix[i].length; j++) {
+			// Find the zeros in the matrix.
+			if (matrix[i][j] === 0) {
+				// Set element below zero to zero as well.
+				for (let k = i + 1; k < matrix.length; k++) {
+					matrix[k][j] = 0;
+				};
+			};
+		};
+	};
+
+	// Loop back through matrix and add up non zero elements.
+	for (let x = 0; x < matrix.length; x++) {
+		for (let y = 0; y < matrix[x].length; y++) {
+			total += matrix[x][y]
+		};
+	};
+
+	return total;
+};
+
+const matrix = [
+	[0, 1, 1, 2],
+	[0, 5, 0, 0],
+	[2, 0, 3, 3]
+];
+
+const matrix2 = [
+	[4, 1, 0, 2],
+	[0, 5, 3, 0],
+	[2, 0, 0, 3]
+];
+
+console.log(matrixElementsSum(matrix));
+console.log(matrixElementsSum(matrix2));
