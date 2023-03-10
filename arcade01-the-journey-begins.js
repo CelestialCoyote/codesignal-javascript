@@ -31,5 +31,5 @@ function isPalindrome(inputString) {
 	};
 };
 
-console.log(isPalindrome('aabaa'));
-console.log(isPalindrome('abaa'));
+//console.log(isPalindrome('aabaa'));
+//console.log(isPalindrome('abaa'));
