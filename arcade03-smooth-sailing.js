@@ -58,5 +58,28 @@ function isLucky(n) {
 	};
 };
 
-console.log(isLucky(1230));
-console.log(isLucky(239017));
+//console.log(isLucky(1230));
+//console.log(isLucky(239017));
+
+
+// Some people are standing in a row in a park. There are trees between
+// them which cannot be moved. Your task is to rearrange the people by
+// their heights in a non-descending order without moving the trees.
+// People can be very tall!
+function sortByHeight(a) {
+	let unsorted = a;
+	const noTrees = unsorted.filter(element => element !== -1);
+	const heightSorted = noTrees.sort((a, b) => a - b);
+
+	let index = 0;
+	for(let i = 0; i < a.length; i++) {
+		if (a[i] !== -1) {
+			a[i] = heightSorted[index];
+			index++;
+		};
+	};
+
+	return a;
+};
+
+console.log(sortByHeight([ -1, 150, 190, 170, -1, -1, 160, 180 ]));
