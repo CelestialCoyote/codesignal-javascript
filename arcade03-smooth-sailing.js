@@ -31,4 +31,32 @@ function commonCharaterCount(s1, s2) {
 	return count;
 };
 
-console.log(commonCharaterCount('aabcc', 'adcaa'));
+//console.log(commonCharaterCount('aabcc', 'adcaa'));
+
+
+// Ticket numbers usually consist of an even number of digits.
+// A ticket number is considered lucky if the sum of the first
+// half of the digits is equal to the sum of the second half.
+// Given a ticket number n, determine if it's lucky or not.
+
+function isLucky(n) {
+	const numArray = Array.from(String(n), Number);
+	let firstHalf = 0;
+	let lastHalf = 0;
+
+	if (numArray.length %2 !== 0) {
+		return false;
+	} else {
+		count = numArray.length / 2;
+
+		for (let i = 0; i < count; i++) {
+			firstHalf += numArray[i];
+			lastHalf += numArray[i + count];
+		};
+		
+		return firstHalf === lastHalf;
+	};
+};
+
+console.log(isLucky(1230));
+console.log(isLucky(239017));
