@@ -82,4 +82,28 @@ function sortByHeight(a) {
 	return a;
 };
 
-console.log(sortByHeight([ -1, 150, 190, 170, -1, -1, 160, 180 ]));
+//console.log(sortByHeight([ -1, 150, 190, 170, -1, -1, 160, 180 ]));
+
+
+// Write a function that reverses characters in (possibly nested) parentheses
+// in the input string.
+
+// Input strings will always be well-formed with matching ()s.
+function reverseInParentheses(inputString) {
+	let str = inputString;
+
+	while (str.includes('(')) {
+		const endBracket = str.indexOf(')');
+		const startBracket = str.lastIndexOf('(', endBracket);
+		const tempStr = str.slice(startBracket + 1, endBracket);
+		const reverseTempStr = tempStr.split('').reverse().join('');
+
+		str = str.slice(0, startBracket) + reverseTempStr + str.slice(endBracket + 1);
+	};
+
+	return str;
+};
+
+console.log(reverseInParentheses("(bar)"));
+console.log(reverseInParentheses("foo(bar)baz"));
+console.log(reverseInParentheses("foo(bar(baz))blim"));
