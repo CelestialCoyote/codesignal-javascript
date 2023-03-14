@@ -26,4 +26,31 @@ function alternatingSums(a) {
 	return [teamOneWeight, teamTwoWeight];
 };
 
-console.log(alternatingSums([50, 60, 60, 45, 70]));
+//console.log(alternatingSums([50, 60, 60, 45, 70]));
+
+
+// Given a rectangular matrix of characters, add a border
+// of asterisks(*) to it.
+function addBorder(picture) {
+	let width = 0;
+
+	for (let i = 0; i < picture.length; i++) {
+		if (picture[i].length > width) {
+			width = picture[i].length;
+		};
+	};
+
+	for (let i = 0; i < picture.length; i++) {
+		picture[i] = '*' + picture[i] + '*';
+	};
+
+	let border = '';
+	for (let i =0; i < width + 2; i++) border += '*';
+
+	picture.unshift(border);
+	picture.push(border);
+
+	return picture;
+};
+
+console.log(addBorder(['abc', 'ded']));
