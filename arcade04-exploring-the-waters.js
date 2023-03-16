@@ -14,7 +14,7 @@ function alternatingSums(a) {
 	let teamTwoWeight = 0;
 
 	for (let i = 0; i < a.length; i++) {
-		if(i % 2 === 0) {
+		if (i % 2 === 0) {
 			teamOne.push(a[i]);
 			teamOneWeight += a[i];
 		} else {
@@ -22,7 +22,7 @@ function alternatingSums(a) {
 			teamTwoWeight += a[i];
 		};
 	};
-	
+
 	return [teamOneWeight, teamTwoWeight];
 };
 
@@ -45,7 +45,7 @@ function addBorder(picture) {
 	};
 
 	let border = '';
-	for (let i =0; i < width + 2; i++) border += '*';
+	for (let i = 0; i < width + 2; i++) border += '*';
 
 	picture.unshift(border);
 	picture.push(border);
@@ -61,9 +61,32 @@ function addBorder(picture) {
 // of the arrays.
 // Given two arrays a and b, check whether they are similar.
 function areSimilar(a, b) {
+	if (a.length !== b.length) return false;
 
+	let count = 0;
+	let sameElements = false;
+	let copyA = a.sort();
+	let copyB = b.sort();
+	console.log(`a- ${a}, copyA- ${copyA}, b- ${b}, copyB- ${copyB}`);
+	// const elements = new Set([...a, ...b]);
+	
+	// for (const x of elements) {
+	// 	const count1 = a.filter(element => element === x).length;
+	// 	const count2 = b.filter(element => element === x).length;
+
+	// 	if (count1 !== count2) sameElements = false;
+	// 	else sameElements = true;
+	// };
+
+	// for (let i = 0; i < a.length; i++) {
+	// 	if (a[i] !== b[i]) count++;
+	// };
+
+	// console.log(`sameElements- ${sameElements}, count- ${count}`);
+	return sameElements && count <= 2;
 };
 
-console.log(areSimilar([1, 2, 3], [1, 2, 3]));
-console.log(areSimilar([1, 2, 3], [2, 1, 3]));
-console.log(areSimilar([1, 2, 2], [2, 1, 1]));
+//console.log(areSimilar([1, 2, 3], [1, 2, 3]));
+//console.log(areSimilar([1, 2, 3], [2, 1, 3]));
+//console.log(areSimilar([1, 2, 2], [2, 1, 1]));
+console.log(areSimilar([2, 3, 9], [10, 3, 2]));
