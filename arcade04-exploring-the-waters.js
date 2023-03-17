@@ -61,32 +61,38 @@ function addBorder(picture) {
 // of the arrays.
 // Given two arrays a and b, check whether they are similar.
 function areSimilar(a, b) {
-	if (a.length !== b.length) return false;
-
 	let count = 0;
 	let sameElements = false;
-	let copyA = a.sort();
-	let copyB = b.sort();
-	console.log(`a- ${a}, copyA- ${copyA}, b- ${b}, copyB- ${copyB}`);
-	// const elements = new Set([...a, ...b]);
-	
-	// for (const x of elements) {
-	// 	const count1 = a.filter(element => element === x).length;
-	// 	const count2 = b.filter(element => element === x).length;
+	let copyA = JSON.parse(JSON.stringify(a));
+	let copyB = JSON.parse(JSON.stringify(b));
+	copyA.sort();
+	copyB.sort();
 
-	// 	if (count1 !== count2) sameElements = false;
-	// 	else sameElements = true;
-	// };
+	// Check if arrays are same length;
+	if (a.length !== b.length) {
+		console.log('first test');
+		return false;
+	};
 
-	// for (let i = 0; i < a.length; i++) {
-	// 	if (a[i] !== b[i]) count++;
-	// };
+	//console.log(`a- ${a}, copyA- ${copyA}, b- ${b}, copyB- ${copyB}`);
+	// Check if arrays are same after sorting;
+	if (copyA !== copyB) {
+		sameElements = false;
+	} else {
+		console.log('second test');
+		return true;
+	}
 
-	// console.log(`sameElements- ${sameElements}, count- ${count}`);
-	return sameElements && count <= 2;
+	// Count number of differences in arrays.
+	for (let i = 0; i < a.length; i++) {
+		if (a[i] !== b[i]) count++;
+	};
+
+	console.log(`sameElements- ${sameElements}, count- ${count}`);
+	return sameElements && (count === 2 || count === 0);
 };
 
-//console.log(areSimilar([1, 2, 3], [1, 2, 3]));
-//console.log(areSimilar([1, 2, 3], [2, 1, 3]));
-//console.log(areSimilar([1, 2, 2], [2, 1, 1]));
+console.log(areSimilar([1, 2, 3], [1, 2, 3]));
+console.log(areSimilar([1, 2, 3], [2, 1, 3]));
+console.log(areSimilar([1, 2, 2], [2, 1, 1]));
 console.log(areSimilar([2, 3, 9], [10, 3, 2]));
