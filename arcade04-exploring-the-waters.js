@@ -70,25 +70,18 @@ function areSimilar(a, b) {
 
 	// Check if arrays are same length;
 	if (a.length !== b.length) {
-		console.log('first test');
 		return false;
 	};
 
-	//console.log(`a- ${a}, copyA- ${copyA}, b- ${b}, copyB- ${copyB}`);
 	// Check if arrays are same after sorting;
-	if (copyA !== copyB) {
-		sameElements = false;
-	} else {
-		console.log('second test');
-		return true;
-	}
-
-	// Count number of differences in arrays.
-	for (let i = 0; i < a.length; i++) {
-		if (a[i] !== b[i]) count++;
+	if (JSON.stringify(copyA) === JSON.stringify(copyB)) {
+		sameElements = true;
+		// Count number of differences in arrays.
+		for (let i = 0; i < a.length; i++) {
+			if (a[i] !== b[i]) count++;
+		};
 	};
 
-	console.log(`sameElements- ${sameElements}, count- ${count}`);
 	return sameElements && (count === 2 || count === 0);
 };
 
