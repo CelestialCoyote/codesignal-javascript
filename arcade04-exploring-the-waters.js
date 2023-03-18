@@ -85,7 +85,17 @@ function areSimilar(a, b) {
 	return sameElements && (count === 2 || count === 0);
 };
 
-console.log(areSimilar([1, 2, 3], [1, 2, 3]));
-console.log(areSimilar([1, 2, 3], [2, 1, 3]));
-console.log(areSimilar([1, 2, 2], [2, 1, 1]));
-console.log(areSimilar([2, 3, 9], [10, 3, 2]));
+//console.log(areSimilar([1, 2, 3], [1, 2, 3]));
+//console.log(areSimilar([1, 2, 3], [2, 1, 3]));
+//console.log(areSimilar([1, 2, 2], [2, 1, 1]));
+//console.log(areSimilar([2, 3, 9], [10, 3, 2]));
+
+
+// You are given an array of integers. On each move you are allowed to
+// increase exactly one of its element by one. Find the minimal number of
+// moves required to obtain a strictly increasing sequence from the input.
+function arrayChange(inputArray) {
+
+};
+
+console.log(arrayChange([1, 1, 1]));
