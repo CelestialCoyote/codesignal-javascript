@@ -95,7 +95,17 @@ function areSimilar(a, b) {
 // increase exactly one of its element by one. Find the minimal number of
 // moves required to obtain a strictly increasing sequence from the input.
 function arrayChange(inputArray) {
+	let moves = 0;
 
+	for (let i = 0; i < inputArray.length - 1; i++) {
+		if (inputArray[i] >= inputArray[i + 1]) {
+			let difference = inputArray[i] - inputArray[i + 1] + 1;
+			moves += difference;
+			inputArray[i + 1] += difference;
+		};
+	};
+
+	return moves;
 };
 
 console.log(arrayChange([1, 1, 1]));
