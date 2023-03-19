@@ -108,4 +108,27 @@ function arrayChange(inputArray) {
 	return moves;
 };
 
-console.log(arrayChange([1, 1, 1]));
+//console.log(arrayChange([1, 1, 1]));
+
+
+// Given a string, find out if its characters can be rearranged to form a palindrome.
+function palindromeRearranging(inputString) {
+	// A map for the character=>count mappings
+	const counts = new Map();
+
+	// Loop through the string...
+	for (const ch of inputString) {
+		const count = counts.get(ch) ?? 0;
+
+		// Add one and store the result
+		counts.set(ch, count + 1);
+	}
+
+	// Show the counts
+	for (const [ch, count] of counts) {
+		console.log(`"${ch}" count: ${counts.get(ch)}`);
+	}
+
+};
+
+console.log(palindromeRearranging('aabb'));
