@@ -30,11 +30,40 @@ function arrayMaximalAdjacentDifference(inputArray) {
 	let maxDifference = 0;
 
 	for (let i = 0; i < inputArray.length; i++) {
-		if (maxDifference < Math.abs(inputArray[i] - inputArray[i +1]))
-			maxDifference = Math.abs(inputArray[i] - inputArray[i +1]);
+		if (maxDifference < Math.abs(inputArray[i] - inputArray[i + 1]))
+			maxDifference = Math.abs(inputArray[i] - inputArray[i + 1]);
 	};
 
 	return maxDifference;
 };
 
-console.log(arrayMaximalAdjacentDifference([2, 4, 1, 0]));
+//console.log(arrayMaximalAdjacentDifference([2, 4, 1, 0]));
+
+
+// An IP address is a numerical label assigned to each device (e.g., computer, printer)
+// participating in a computer network that uses the Internet Protocol for communication.
+// There are two versions of the Internet protocol, and thus two versions of addresses.
+// One of them is the IPv4 address.
+
+// Given a string, find out if it satisfies the IPv4 address naming rules.
+function isIPv4Address(inputString) {
+	const address = inputString.split('.');
+	let count = 0;
+
+
+	for (let i = 0; i < address.length; i++) {
+		if (address.length !== 4 || (address[i].startsWith('0') && address[i].length > 1))
+			return false;
+		
+		if (address[i] !== '' && address[i] >= 0 && address[i] <= 255)
+			count++;
+	};
+
+	return count === 4;
+};
+
+//console.log(isIPv4Address('172.16.254.1'));
+//console.log(isIPv4Address('172.316.254.1'));
+//console.log(isIPv4Address('.254.255.0'));
+console.log(isIPv4Address('64.233.161.00'));
+console.log(isIPv4Address('0..1.0.0'));
