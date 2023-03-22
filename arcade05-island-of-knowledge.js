@@ -65,5 +65,22 @@ function isIPv4Address(inputString) {
 //console.log(isIPv4Address('172.16.254.1'));
 //console.log(isIPv4Address('172.316.254.1'));
 //console.log(isIPv4Address('.254.255.0'));
-console.log(isIPv4Address('64.233.161.00'));
-console.log(isIPv4Address('0..1.0.0'));
+//console.log(isIPv4Address('64.233.161.00'));
+//console.log(isIPv4Address('0..1.0.0'));
+
+
+// You are given an array of integers representing coordinates of obstacles situated on
+// a straight line.
+
+// Assume that you are jumping from the point with coordinate 0 to the right. You are
+// allowed only to make jumps of the same length represented by some integer.
+
+// Find the minimal length of the jump enough to avoid all the obstacles.
+function avoidObstacles(inputArray) {
+	for (let i = 1; ; i++) {
+		if (inputArray.every(element => element % i))
+			return i;
+	};
+};
+
+console.log(avoidObstacles([5, 3, 6, 7, 9]));
