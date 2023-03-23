@@ -54,7 +54,7 @@ function isIPv4Address(inputString) {
 	for (let i = 0; i < address.length; i++) {
 		if (address.length !== 4 || (address[i].startsWith('0') && address[i].length > 1))
 			return false;
-		
+
 		if (address[i] !== '' && address[i] >= 0 && address[i] <= 255)
 			count++;
 	};
@@ -83,4 +83,48 @@ function avoidObstacles(inputArray) {
 	};
 };
 
-console.log(avoidObstacles([5, 3, 6, 7, 9]));
+//console.log(avoidObstacles([5, 3, 6, 7, 9]));
+
+
+// You want to apply the box blur algorithm to the photo to hide its content.
+// The pixels in the input image are represented as integers. The algorithm distorts
+// the input image in the following way: Every pixel x in the output image has a
+// value equal to the average value of the pixel values from the 3 × 3 square that
+// has its center at x, including x itself. All the pixels on the border of x are
+// then removed.
+
+// Return the blurred image as an integer, with the fractions rounded down.
+function boxBlur(image) {
+	const blur = [];
+
+	for (let i = 0; i < image.length - 2; i++) {
+		const matrix = [];
+
+		for (let j = 0; j < image[0].length - 2; j++) {
+			const row1 = image[i][j] + image[i][j + 1] + image[i][j + 2];
+			const row2 = image[i + 1][j] + image[i + 1][j + 1] + image[i + 1][j + 2];
+			const row3 = image[i + 2][j] + image[i + 2][j + 1] + image[i + 2][j + 2];
+
+			matrix.push(Math.floor((row1 + row2 + row3) / 9));
+		};
+		blur.push(matrix);
+	};
+
+	return blur;
+};
+
+console.log(boxBlur(
+	[
+		[1, 1, 1],
+		[1, 7, 1],
+		[1, 1, 1]
+	]
+));
+console.log(boxBlur(
+	[
+		[7, 4, 0, 1],
+		[5, 6, 2, 2],
+		[6, 10, 7, 8],
+		[1, 4, 2, 0]
+	]
+));
