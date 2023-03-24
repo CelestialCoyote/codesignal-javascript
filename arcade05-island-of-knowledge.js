@@ -135,7 +135,66 @@ function boxBlur(image) {
 // number of mines in the neighboring cells. Starting off with some arrangement
 // of mines we want to create a Minesweeper game setup.
 function mineSweeper(matrix) {
+	const board = [];
 
+	for (let x = 0; x < matrix.length; x++) {
+		board.push([]);
+
+		for (let y = 0; y < matrix[0].length; y++) {
+			board[x][y] = 0;
+
+			// Top.
+			if (matrix[x - 1] !== undefined) {
+				if (matrix[x - 1][y]) {
+					board[x][y]++;
+				};
+			};
+			// Below.
+			if (matrix[x + 1] !== undefined) {
+				if (matrix[x + 1][y]) {
+					board[x][y]++;
+				};
+			};
+			// Left.
+			if (matrix[x][y - 1] !== undefined) {
+				if (matrix[x][y - 1]) {
+					board[x][y]++;
+				};
+			};
+			// Right.
+			if (matrix[x][y + 1] !== undefined) {
+				if (matrix[x][y + 1]) {
+					board[x][y]++;
+				};
+			};
+			// Top left.
+			if (matrix[x - 1] !== undefined) {
+				if (matrix[x - 1][y - 1]) {
+					board[x][y]++;
+				};
+			};
+			// Top right.
+			if (matrix[x - 1] !== undefined) {
+				if (matrix[x - 1][y + 1]) {
+					board[x][y]++;
+				};
+			};
+			// Bottom left.
+			if (matrix[x + 1] !== undefined) {
+				if (matrix[x + 1][y - 1]) {
+					board[x][y]++;
+				};
+			};
+			// Bottom right.
+			if (matrix[x + 1] !== undefined) {
+				if (matrix[x + 1][y + 1]) {
+					board[x][y]++;
+				};
+			};
+		};
+	};
+
+	return board;
 };
 
-console.log(mineSweeper([[true, false, false]], [false, true, false], [false, false, false]));
+console.log(mineSweeper([ [true, false, false], [false, true, false], [false, false, false] ]));
