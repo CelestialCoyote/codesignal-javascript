@@ -113,18 +113,29 @@ function boxBlur(image) {
 	return blur;
 };
 
-console.log(boxBlur(
-	[
-		[1, 1, 1],
-		[1, 7, 1],
-		[1, 1, 1]
-	]
-));
-console.log(boxBlur(
-	[
-		[7, 4, 0, 1],
-		[5, 6, 2, 2],
-		[6, 10, 7, 8],
-		[1, 4, 2, 0]
-	]
-));
+// console.log(boxBlur(
+// 	[
+// 		[1, 1, 1],
+// 		[1, 7, 1],
+// 		[1, 1, 1]
+// 	]
+// ));
+// console.log(boxBlur(
+// 	[
+// 		[7, 4, 0, 1],
+// 		[5, 6, 2, 2],
+// 		[6, 10, 7, 8],
+// 		[1, 4, 2, 0]
+// 	]
+// ));
+
+
+// In the popular Minesweeper game you have a board with some mines and those
+// cells that don't contain a mine have a number in it that indicates the total
+// number of mines in the neighboring cells. Starting off with some arrangement
+// of mines we want to create a Minesweeper game setup.
+function mineSweeper(matrix) {
+
+};
+
+console.log(mineSweeper([[true, false, false]], [false, true, false], [false, false, false]));
